@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Instructions to run:
 
-* Ruby version
+* bundle install
 
-* System dependencies
+* rake db:migrate
 
-* Configuration
+* rake db:seed 
 
-* Database creation
+* rails s
 
-* Database initialization
+* Go to http://localhost:3000
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+What you can check: 
 
-* Deployment instructions
+* Go to Courses Menu, there you can start creating your courses
+* when you create the course automatically 8 sessions are created from the date you choose to start.
+* Go to courses details and check for the weather forecast and the sessions for your course.
 
-* ...
