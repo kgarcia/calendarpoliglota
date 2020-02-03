@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2>
+  <strong>Course Name:</strong>
   <%= @course.name %>
-</p>
+</h2>
 
 <p>
   <strong>Description:</strong>
@@ -34,25 +34,24 @@
   <strong>Temp:</strong> <%= @forecast_body["main"]["temp"].to_f - 273.15 %>°C
 </p>
 
+<h2> Course Sessions </h2>
 <table>
   <thead>
     <tr>
+      <th>Number</th>
       <th>Weekday</th>
       <th>Date</th>
       <th>Time</th>
-      <th>Number</th>
-      <th>Course</th>
     </tr>
   </thead>
 
   <tbody>
     <% @course.events.each do |event| %>
       <tr>
+        <td><%= event.number %></td>
         <td><%= event.date.strftime("%A") %></td>
         <td><%= event.date.strftime("%d %b %Y") %></td>
         <td><%= event.date.strftime("%H:%M %Z") %></td>
-        <td><%= event.number %></td>
-        <td><%= event.course.name %></td>
       </tr>
     <% end %>
   </tbody>

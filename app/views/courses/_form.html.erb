@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, required: true  %>
   </div>
 
   <div class="field">
     <%= form.label :date, "Fecha de Inicio" %>
-    <%= form.text_field :date, :class => "datepicker" %>
+    <%= form.text_field :date, :class => "datepicker", required: true  %>
   </div>
 
   <div class="field">

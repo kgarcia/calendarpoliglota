@@ -1,8 +1,11 @@
 class Course < ApplicationRecord
   belongs_to :city
   has_many :events
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :start_time, presence: true
 
-  enum days: { mon_wed: 0, tue_thu: 1}
+  enum days: { mon_wed: 0, tue_thu: 1} #Legacy code for a different scheduling strategy
 
    
     def create_events(new_date)
