@@ -1,15 +1,8 @@
+<h1>Welcome#home</h1>
+<p>Find me in app/views/welcome/home.html.erb</p>
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Calendarpoliglota</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    
- 
+<head>
 <style>
 ul {
   list-style-type: none;
@@ -45,10 +38,6 @@ li a:hover:not(.active) {
   background-color: #555;
   color: white;
 }
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
 </style>
 </head>
 <body>
@@ -68,7 +57,5 @@ table, th, td {
   </li>
 </ul>
 
-  <body>
-    <%= yield %>
-  </body>
+</body>
 </html>

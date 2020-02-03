@@ -11,19 +11,52 @@
 </p>
 
 <p>
-  <strong>Start time:</strong>
-  <%= @course.start_time %>
-</p>
-
-<p>
-  <strong>Days:</strong>
-  <%= @course.days %>
+  <strong>Start Date:</strong>
+  <%= @course.start_time.strftime("%A, %d %b %Y")  %>
 </p>
 
 <p>
   <strong>City:</strong>
-  <%= @course.city %>
+  <%= @course.city.name %>
 </p>
+
+<p>
+  <strong>Current Weather:</strong>
+  <%= @weather_body["weather"].first["main"] %><i><%= image_tag  "http://openweathermap.org/img/wn/#{@weather_body["weather"].first["icon"]}@2x.png" %></i>
+  <br>
+  <strong>Temp:</strong> <%= @weather_body["main"]["temp"].to_f - 273.15 %>°C
+</p>
+
+<p>
+  <strong>Forecast for <%= Time.at(@forecast_body["dt"]) %> </strong>
+  <%= @forecast_body["weather"].first["main"] %><i><%= image_tag  "http://openweathermap.org/img/wn/#{@forecast_body["weather"].first["icon"]}@2x.png" %></i>
+  <br>
+  <strong>Temp:</strong> <%= @forecast_body["main"]["temp"].to_f - 273.15 %>°C
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weekday</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Number</th>
+      <th>Course</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course.events.each do |event| %>
+      <tr>
+        <td><%= event.date.strftime("%A") %></td>
+        <td><%= event.date.strftime("%d %b %Y") %></td>
+        <td><%= event.date.strftime("%H:%M %Z") %></td>
+        <td><%= event.number %></td>
+        <td><%= event.course.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

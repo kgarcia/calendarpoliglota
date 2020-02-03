@@ -22,21 +22,35 @@
   </div>
 
   <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
+    <%= form.label :date, "Fecha de Inicio" %>
+    <%= form.text_field :date, :class => "datepicker" %>
   </div>
 
   <div class="field">
-    <%= form.label :days %>
-    <%= form.number_field :days %>
+    <%= form.label "time", "Start time" %>
+    <%= form.select "time", (5..23).to_a %>:00
   </div>
 
   <div class="field">
     <%= form.label :city_id %>
-    <%= form.text_field :city_id %>
+    <%= form.select :city_id, @cities %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+/** init datepicker */
+    $(".datepicker").datepicker({
+        beforeShowDay: function(date) {
+            return [date.getDay() != 5 && date.getDay() != 6 && date.getDay() != 0];
+        }
+    });
+
+
+    $('.timepicker').timepicker()
+
+</script>

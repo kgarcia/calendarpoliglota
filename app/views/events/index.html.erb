@@ -8,7 +8,6 @@
       <th>Date</th>
       <th>Number</th>
       <th>Course</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -17,10 +16,7 @@
       <tr>
         <td><%= event.date %></td>
         <td><%= event.number %></td>
-        <td><%= event.course %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= event.course.name %></td>
       </tr>
     <% end %>
   </tbody>
