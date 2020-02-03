@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  start_time: 2020-02-03 13:00:45
+  days: 1
+  city: one
+
+two:
+  name: MyString
+  description: MyString
+  start_time: 2020-02-03 13:00:45
+  days: 1
+  city: two

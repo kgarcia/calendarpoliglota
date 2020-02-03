@@ -1,0 +1,56 @@
+<%= form_with(model: course, local: true) do |form| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date, "Fecha de Inicio" %>
+    <%= form.text_field :date, :class => "datepicker" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "time", "Start time" %>
+    <%= form.select "time", (5..23).to_a %>:00
+  </div>
+
+  <div class="field">
+    <%= form.label :city_id %>
+    <%= form.select :city_id, @cities %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+
+/** init datepicker */
+    $(".datepicker").datepicker({
+        beforeShowDay: function(date) {
+            return [date.getDay() != 5 && date.getDay() != 6 && date.getDay() != 0];
+        }
+    });
+
+
+    $('.timepicker').timepicker()
+
+</script>
